@@ -1,7 +1,19 @@
+@import "../../../styles/main.scss";
+
 .event-card {
-	max-width: 400px;
+	width: 100%;
 	clear: both;
 	&-description {
 		min-height: 60px;
+	}
+	&-details {
+		color: $success-color;
+		padding-left: 5px;
+		&--late {
+			color: $alert-color;
+		}
+		&--early {
+			color: $primary-color;
+		}
 	}
 }

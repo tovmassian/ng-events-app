@@ -1,10 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 /* You can add global styles to this file, and also import other style files */
+@import "./mixins";
+@import "./colors";
 
 $main-font: 'Roboto Slab', serif;
 
 body {
 	margin: auto;
-	max-width: 1024px;
 	font-family: $main-font;
 }

@@ -1,6 +1,10 @@
-.events {
+@import './../../../styles/main.scss';
+
+.events-list {
 	display: flex;
 	.mat-list-item {
+		@include horizontal_margin(20);
+		@include vertical_margin(40);
 		height: auto;
 	}
 }

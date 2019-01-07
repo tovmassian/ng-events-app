@@ -1,4 +1,4 @@
-<mat-list role="list" class="events">
+<mat-list role="list" class="events-list">
 	<mat-list-item role="listitem" *ngFor="let event of events">
 		<evnt-event-card [event]="event" (handleClick)="handleEventClick($event)"></evnt-event-card>
 	</mat-list-item>

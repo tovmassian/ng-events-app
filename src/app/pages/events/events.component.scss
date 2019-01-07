@@ -1,0 +1,9 @@
+@import './../../../styles/main.scss';
+
+.events {
+	@include horizontal_margin(30);
+	max-width: 1024px;
+	&-header {
+		text-align: center;
+	}
+}

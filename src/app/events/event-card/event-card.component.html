@@ -1,17 +1,29 @@
 <mat-card class="event-card">
 	<mat-card-header>
-		<mat-card-title>{{event.name}}</mat-card-title>
-		<mat-card-subtitle>{{event.location.address}}, {{event.location.city}}, {{event.location.country}}</mat-card-subtitle>
+		<mat-card-title>{{event?.name}}</mat-card-title>
+		<mat-card-subtitle *ngIf="event?.location">{{event?.location.address}}, {{event?.location.city}}, {{event?.location.country}}</mat-card-subtitle>
 	</mat-card-header>
-	<img mat-card-image [src]="event.imageUrl" [alt]="event.name">
+	<img mat-card-image [src]="event?.imageUrl" [alt]="event?.name">
 	<mat-card-content>
 		<mat-list role="list">
-			<mat-list-item role="listitem">Date: {{event.date}}</mat-list-item>
-			<mat-list-item role="listitem">Time: {{event.time}}</mat-list-item>
-			<mat-list-item role="listitem">Price: {{event.price}}</mat-list-item>
+			<mat-list-item role="listitem" *ngIf="event?.date">Date: {{event?.date}}</mat-list-item>
+			<mat-list-item role="listitem"
+						   [ngSwitch]="event?.time">
+				Time: {{event?.time}}
+				<span *ngSwitchCase="'8:00'"
+					  class="event-card-details"
+					  [ngClass]="{'event-card-details--late' : event?.time === '15:00', 'event-card-details--early' : event?.time === '08:00'}">(Early Start)</span>
+				<span *ngSwitchCase="'15:00'"
+					  class="event-card-details"
+					  [ngClass]="{'event-card-details--late' : event?.time === '15:00', 'event-card-details--early' : event?.time === '08:00'}">(Late Start)</span>
+				<span *ngSwitchDefault
+					  class="event-card-details"
+					  [ngClass]="{'event-card-details--late' : event?.time === '15:00', 'event-card-details--early' : event?.time === '08:00'}">(Normal Start)</span>
+			</mat-list-item>
+			<mat-list-item role="listitem" *ngIf="event?.price">Price: {{event?.price}}</mat-list-item>
 		</mat-list>
-		<div class="event-card-description">
-			<p>{{event.description}}</p>
+		<div class="event-card-description" *ngIf="event?.description">
+			<p>{{event?.description}}</p>
 		</div>
 	</mat-card-content>
 	<mat-card-actions>

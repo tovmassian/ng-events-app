@@ -1,0 +1,19 @@
+@mixin horizontal_padding($value) {
+	padding-left: $value+px;
+	padding-right: $value+px;
+}
+
+@mixin vertical_padding($value) {
+	padding-top: $value+px;
+	padding-bottom: $value+px;
+}
+
+@mixin horizontal_margin($value) {
+	margin-left: $value+px;
+	margin-right: $value+px;
+}
+
+@mixin vertical_margin($value) {
+	margin-top: $value+px;
+	margin-bottom: $value+px;
+}
